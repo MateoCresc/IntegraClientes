@@ -1,0 +1,12 @@
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\bin\Debug\ClienteApp.Data.dll.config
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\bin\Debug\ClienteApp.Data.dll
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\bin\Debug\ClienteApp.Data.pdb
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\bin\Debug\EntityFramework.dll
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\bin\Debug\EntityFramework.xml
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\obj\Debug\ClienteApp.Data.csproj.AssemblyReference.cache
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\obj\Debug\ClienteApp.Data.csproj.CoreCompileInputs.cache
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\obj\Debug\ClienteA.0178679D.Up2Date
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\obj\Debug\ClienteApp.Data.dll
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Data\obj\Debug\ClienteApp.Data.pdb

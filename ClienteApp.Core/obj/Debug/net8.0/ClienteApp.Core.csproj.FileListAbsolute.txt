@@ -1,0 +1,5 @@
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Core\obj\Debug\net8.0\ClienteApp.Core.csproj.AssemblyReference.cache
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Core\obj\Debug\net8.0\ClienteApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Core\obj\Debug\net8.0\ClienteApp.Core.AssemblyInfoInputs.cache
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Core\obj\Debug\net8.0\ClienteApp.Core.AssemblyInfo.cs
+C:\Users\matuc\source\repos\ClienteApp\ClienteApp.Core\obj\Debug\net8.0\ClienteApp.Core.csproj.CoreCompileInputs.cache
