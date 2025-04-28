@@ -77,12 +77,37 @@
        
 
 <script type="text/javascript">
-        $(function () {
+    $(function () {
+        const $cuit = $('#Cuit');
+        const $razonSocial = $('#RazonSocial');
+        const $telefono = $('#Telefono');
+        const $direccion = $('#Direccion');
+        const $createButton = $('input[type="submit"]');
+
+        function validarFormulario() {
+            const cuitValido = $cuit.val().length === 11 && /^[0-9]+$/.test($cuit.val());
+            const razonSocialValida = $razonSocial.val().trim() !== '';
+            const telefonoValido = /^[0-9]+$/.test($telefono.val().trim());
+            const direccionValida = $direccion.val().trim().length > 0 && $direccion.val().trim().length <= 200;
+
+            if (cuitValido && razonSocialValida && telefonoValido && direccionValida) {
+                $createButton.prop('disabled', false);
+            } else {
+                $createButton.prop('disabled', true);
+            }
+        }
+
+        $createButton.prop('disabled', true);
+
+        $('input').on('input blur change', function () {
+            validarFormulario();
+        });
+
             $('#Cuit').on('blur change', function () {
                 var cuit = $(this).val().trim();
                 if (cuit.length === 11 && /^[0-9]+$/.test(cuit)) {
                     $.ajax({
-                        url: '@Url.Action("GetRazonSocialByCuit")', //Problema con CORS y cree el método
+                        url: '@Url.Action("GetRazonSocialByCuit")', //Problema con CORS y cree el método para acceder desde backend
                         type: 'GET',
                         dataType: 'json',
                         data: {cuit: cuit},
@@ -96,6 +121,7 @@
                 }
             });
         });
+
 </script>
 
 }
