@@ -103,24 +103,37 @@
             validarFormulario();
         });
 
-            $('#Cuit').on('blur change', function () {
-                var cuit = $(this).val().trim();
-                if (cuit.length === 11 && /^[0-9]+$/.test(cuit)) {
-                    $.ajax({
-                        url: '@Url.Action("GetRazonSocialByCuit")', //Problema con CORS y cree el método para acceder desde backend
-                        type: 'GET',
-                        dataType: 'json',
-                        data: {cuit: cuit},
-                        success: function (response) {
-                            $('#RazonSocial').val(response);
-                        },
-                        error: function () {
-                            alert('No se pudo obtener la razón social para el CUIT ingresado.');
-                        }
-                    });
-                }
-            });
+        $('#Cuit').on('blur change', function () {
+            var cuit = $(this).val().trim();
+            if (cuit.length === 11 && /^[0-9]+$/.test(cuit)) {
+                $.ajax({
+                    url: '@Url.Action("GetRazonSocialByCuit")', //Problema con CORS y cree el método para acceder desde backend
+                    type: 'GET',
+                    dataType: 'json',
+                    data: { cuit: cuit },
+                    success: function (response) {
+                        $('#RazonSocial').val(response);
+                    },
+                    error: function () {
+                        alert('No se pudo obtener la razón social para el CUIT ingresado.');
+                    }
+                });
+            }
         });
+    });
+
+    $(document).ready(function () {
+        $('#Telefono').on('input', function () {
+            var valor = $(this).val();
+            var mensajeError = $(this).next('.text-danger');
+
+            if (!/^\d*$/.test(valor)) {
+                mensajeError.text('El teléfono solo puede contener números.');
+            } else {
+                mensajeError.text('');
+            }
+        });
+    });
 
 </script>
 

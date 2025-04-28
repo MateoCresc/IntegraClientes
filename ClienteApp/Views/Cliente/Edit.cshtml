@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Cliente</h4>
         <hr />
@@ -20,7 +20,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.RazonSocial, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RazonSocial, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.RazonSocial, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.RazonSocial, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -65,4 +65,69 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            $('#Telefono').on('input', function () {
+                var valor = $(this).val();
+                var mensajeError = $(this).next('.text-danger');
+
+                if (!/^\d*$/.test(valor)) {
+                    mensajeError.text('El teléfono solo puede contener números.');
+                } else {
+                    mensajeError.text('');
+                }
+            });
+
+            $('#Direccion').on('input', function () {
+                var valor = $(this).val();
+                var mensajeError = $(this).next('.text-danger');
+
+                if (valor.length > 200) {
+                    mensajeError.text('La dirección no puede superar los 200 caracteres.');
+                } else {
+                    mensajeError.text('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            function validarFormulario() {
+                var telefono = $('#Telefono').val().trim();
+                var direccion = $('#Direccion').val().trim();
+                var errores = 0;
+
+                
+                if (telefono === '' || !/^\d+$/.test(telefono)) {
+                    $('#Telefono').next('.text-danger').text('Debe ingresar un teléfono válido (solo números).');
+                    errores++;
+                } else {
+                    $('#Telefono').next('.text-danger').text('');
+                }
+
+                
+                if (direccion === '' || direccion.length > 200) {
+                    $('#Direccion').next('.text-danger').text('Debe ingresar una dirección válida (máx 200 caracteres).');
+                    errores++;
+                } else {
+                    $('#Direccion').next('.text-danger').text('');
+                }
+
+                return errores === 0;
+            }
+
+            $('form').submit(function (e) {
+                if (!validarFormulario()) {
+                    e.preventDefault();
+                }
+            });
+            
+            $('#Telefono, #Direccion').on('input', function () {
+                validarFormulario();
+            });
+        });
+    </script>
 }

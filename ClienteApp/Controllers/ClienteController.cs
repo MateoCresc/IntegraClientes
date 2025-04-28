@@ -73,7 +73,6 @@ namespace ClienteApp.Controllers
                     _clienteAppDBContext.Clientes.Add(clienteBD);
                     _clienteAppDBContext.SaveChanges();
                     return RedirectToAction("Index");
-                    //Mandar error
                 }
             }
 
@@ -101,7 +100,17 @@ namespace ClienteApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _clienteAppDBContext.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
+                var clienteExistente = _clienteAppDBContext.Clientes.Find(cliente.Cuit);
+
+                if (clienteExistente == null)
+                {
+                    return HttpNotFound();
+                }
+
+                clienteExistente.Telefono = cliente.Telefono;
+                clienteExistente.Direccion = cliente.Direccion;
+                clienteExistente.Activo = cliente.Activo;
+
                 _clienteAppDBContext.SaveChanges();
                 return RedirectToAction("Index");
             }

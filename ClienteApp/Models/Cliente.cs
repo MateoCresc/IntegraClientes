@@ -17,12 +17,12 @@ namespace ClienteApp.Models
         [Display(Name = "Razón Social")]
         public string RazonSocial { get; set; }
 
-        [Required]
-        [Phone]
+        [Required(ErrorMessage = "El teléfono es obligatorio.")]
+        [RegularExpression(@"^\d+$", ErrorMessage = "El teléfono debe contener solo números.")]
         public string Telefono { get; set; }
 
-        [Required]
-        [StringLength(200)]
+        [Required(ErrorMessage = "La dirección es obligatoria.")]
+        [StringLength(200, ErrorMessage = "La dirección no puede superar los 200 caracteres.")]
         public string Direccion { get; set; }
 
         public bool Activo { get; set; }
